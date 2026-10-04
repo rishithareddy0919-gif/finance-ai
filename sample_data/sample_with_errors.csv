@@ -1,0 +1,8 @@
+date,time,merchant,amount,category,payment_method,note
+2026-09-28,13:10,Swiggy,240,Food,UPI,lunch
+2026-09-28,19:30,Uber,185,Travel,UPI,
+2026-02-31,12:00,Zomato,300,Food,UPI,bad date
+2026-09-29,25:30,Amazon,799,Shopping,Card,bad time
+2026-09-29,14:00,Campus Stationery,-50,Education,Cash,negative amount
+2026-09-30,09:15,,120,Food,UPI,missing merchant
+2026-09-30,20:45,Jio,299,,UPI,category left blank

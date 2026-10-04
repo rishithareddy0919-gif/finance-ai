@@ -1,0 +1,5 @@
+{
+  "_comment": "Agent thresholds. Below 'low' the agent logs the transaction as normal; between 'low' and 'high' it asks you; above 'high' it flags it as potentially unusual. The likelihood ratios say how strongly your answer changes the odds.",
+  "thresholds": {"low": 0.4, "high": 0.7},
+  "feedback_likelihood_ratio": {"me": 0.2, "not_me": 8.0}
+}
