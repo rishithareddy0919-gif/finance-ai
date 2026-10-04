@@ -19,7 +19,12 @@ from routes_ai import router as ai_router
 from seed import reset_demo_data
 
 app = FastAPI(title="Personal Financial Intelligence")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"],
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://finance-ai-lake-three.vercel.app",
+    ],,
                    allow_methods=["*"], allow_headers=["*"])
 api = APIRouter(prefix="/api")
 
