@@ -1,14 +1,27 @@
-// All calls to the FastAPI backend live here. Errors always carry a list of readable messages.
+// All calls to the FastAPI backend live here.
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+
 async function request(path, options) {
-  const res = await fetch("/api" + path, options);
+  const res = await fetch(API_BASE + "/api" + path, options);
   let body = null;
-  try { body = await res.json(); } catch { /* empty body */ }
+
+  try {
+    body = await res.json();
+  } catch {
+    /* empty body */
+  }
+
   if (!res.ok) {
     const detail = body && body.detail;
     const err = new Error("Request failed");
-    err.errors = (detail && detail.errors) || [typeof detail === "string" ? detail : "Something went wrong. Try again."];
+    err.errors =
+      (detail && detail.errors) ||
+      (typeof detail === "string"
+        ? detail
+        : "Something went wrong. Try again.");
     throw err;
   }
+
   return body;
 }
 const json = (method, data) => ({ method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
